@@ -1,0 +1,2 @@
+# NIseminarski
+Diskretna kosinusna transformacija
