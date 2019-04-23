@@ -8,3 +8,4 @@ Seminarski rad iz predmeta Naučno Izračunavanje.
 * https://en.wikipedia.org/wiki/Discrete_cosine_transform
 * https://docs.scipy.org/doc/scipy/reference/generated/scipy.fftpack.dct.html
 * https://stackoverflow.com/questions/7110899/how-do-i-apply-a-dct-to-an-image-in-python
+* http://www.lukedodd.com/really-simple-audio-compression/
