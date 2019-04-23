@@ -1,0 +1,10 @@
+### Audio kompresija
+
+So what does this have to do with audio compression? The coefficients of the DCT are amplitudes of cosines that are “within” the original single. Small coefficients will result in cosines with small amplitudes, which we are less likely to hear. So instead of storing the original sample we could take the DCT of the sample, discard small coefficients, and keep that. We would store fewer numbers and so compress the audio data.
+
+The decompression algorithm would be simple, we would simply take the IDCT of whatever we stored play that back. We will be missing some of the signal, but one of the properties of DCT’s is that a few of the larger coefficients account for a large amount of the power in the original signal. Also the coefficients we discard will usually be from quiet high frequency parts of the sound, which we hear less. These are some of the reasons why DCT is often used in compression.
+
+There are a few details we are missing. When compressing with DCTs you typically compress small slices (windows) of the audio at once. This is partly so that seeking through the compressed stream is easier but mostly because we want the coefficients in our window to represent frequencies we hear (with large window the majority of the coefficients would represent frequencies well out of the human hearing range).
+
+The most annoying artifact, that occurs even in the higher bit rate example, is a slight “clicking” noise. I think this is caused by the windowing – the sample is not forced to be “continuous” over the boundaries of windows so you hear small clicks on windows where it does not line up. Aside from that the highest bitrate version is not totally awful to listen to, although even a fairly poor set of headphones I can hear “garbling”. The cool thing is that even two mid bit-rate streams are fairly intelligible (e.g you could probably understand speech), which is impressive considering the level of compression achieved and the simplicity of the code. The lowest bit rate stream is really bad, but it’s a good example of what very drastic lossy audio compression sounds like.
+
